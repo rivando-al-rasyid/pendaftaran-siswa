@@ -29,8 +29,8 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::get('/registration', [RegistrationController::class, 'showRegistrationForm'])->name('registration.form');
-Route::post('/registration', [RegistrationController::class, 'register'])->name('registration.register');
+Route::get('/daftar', [RegistrationController::class, 'showRegistrationForm'])->name('registration.form');
+Route::post('/daftar', [RegistrationController::class, 'register'])->name('registration.register');
 
 
 require __DIR__ . '/auth.php';
