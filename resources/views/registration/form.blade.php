@@ -1,21 +1,24 @@
-@extends('layouts.app')
+<!-- resources/views/registration/form.blade.php -->
+
+@extends('layouts.login')
 
 @section('content')
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Registration') }}</div>
+                <div class="card-header">Registration</div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('registration.register') }}">
                         @csrf
 
                         <!-- Student's Biodata Section -->
-                        <h2>{{ __('Prospective Student Biodata') }}</h2>
+                        <h2>Prospective Student Biodata</h2>
                         <hr>
+
+                        <!-- Student Name -->
                         <div class="form-group row">
-                            <label for="student_name"
-                                class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
+                            <label for="student_name" class="col-md-4 col-form-label text-md-right">Name</label>
                             <div class="col-md-6">
                                 <input id="student_name" type="text"
                                     class="form-control @error('student_name') is-invalid @enderror" name="student_name"
@@ -28,9 +31,10 @@
                             </div>
                         </div>
 
+                        <!-- Student Phone Number -->
                         <div class="form-group row">
-                            <label for="student_phone_number"
-                                class="col-md-4 col-form-label text-md-right">{{ __('Phone Number') }}</label>
+                            <label for="student_phone_number" class="col-md-4 col-form-label text-md-right">Phone
+                                Number</label>
                             <div class="col-md-6">
                                 <input id="student_phone_number" type="text"
                                     class="form-control @error('student_phone_number') is-invalid @enderror"
@@ -43,9 +47,9 @@
                             </div>
                         </div>
 
+                        <!-- Student Religion -->
                         <div class="form-group row">
-                            <label for="student_religion"
-                                class="col-md-4 col-form-label text-md-right">{{ __('Religion') }}</label>
+                            <label for="student_religion" class="col-md-4 col-form-label text-md-right">Religion</label>
                             <div class="col-md-6">
                                 <input id="student_religion" type="text"
                                     class="form-control @error('student_religion') is-invalid @enderror"
@@ -58,9 +62,10 @@
                             </div>
                         </div>
 
+                        <!-- Student Date of Birth -->
                         <div class="form-group row">
-                            <label for="student_date_of_birth"
-                                class="col-md-4 col-form-label text-md-right">{{ __('Date of Birth') }}</label>
+                            <label for="student_date_of_birth" class="col-md-4 col-form-label text-md-right">Date of
+                                Birth</label>
                             <div class="col-md-6">
                                 <input id="student_date_of_birth" type="date"
                                     class="form-control @error('student_date_of_birth') is-invalid @enderror"
@@ -73,9 +78,10 @@
                             </div>
                         </div>
 
+                        <!-- Student Place of Birth -->
                         <div class="form-group row">
-                            <label for="student_place_of_birth"
-                                class="col-md-4 col-form-label text-md-right">{{ __('Place of Birth') }}</label>
+                            <label for="student_place_of_birth" class="col-md-4 col-form-label text-md-right">Place of
+                                Birth</label>
                             <div class="col-md-6">
                                 <input id="student_place_of_birth" type="text"
                                     class="form-control @error('student_place_of_birth') is-invalid @enderror"
@@ -88,9 +94,9 @@
                             </div>
                         </div>
 
+                        <!-- Current School -->
                         <div class="form-group row">
-                            <label for="current_school"
-                                class="col-md-4 col-form-label text-md-right">{{ __('Current School') }}</label>
+                            <label for="current_school" class="col-md-4 col-form-label text-md-right">Current School</label>
                             <div class="col-md-6">
                                 <input id="current_school" type="text"
                                     class="form-control @error('current_school') is-invalid @enderror" name="current_school"
@@ -103,8 +109,9 @@
                             </div>
                         </div>
 
+                        <!-- Address -->
                         <div class="form-group row">
-                            <label for="address" class="col-md-4 col-form-label text-md-right">{{ __('Address') }}</label>
+                            <label for="address" class="col-md-4 col-form-label text-md-right">Address</label>
                             <div class="col-md-6">
                                 <input id="address" type="text"
                                     class="form-control @error('address') is-invalid @enderror" name="address"
@@ -117,13 +124,13 @@
                             </div>
                         </div>
 
+                        <!-- Gender -->
                         <div class="form-group row">
-                            <label for="gender" class="col-md-4 col-form-label text-md-right">{{ __('Gender') }}</label>
+                            <label for="gender" class="col-md-4 col-form-label text-md-right">Gender</label>
                             <div class="col-md-6">
                                 <select id="gender" class="form-control @error('gender') is-invalid @enderror"
                                     name="gender" required>
-                                    <option value="Male" {{ old('gender') == 'Male' ? 'selected' : '' }}>Male
-                                    </option>
+                                    <option value="Male" {{ old('gender') == 'Male' ? 'selected' : '' }}>Male</option>
                                     <option value="Female" {{ old('gender') == 'Female' ? 'selected' : '' }}>Female
                                     </option>
                                 </select>
@@ -135,8 +142,9 @@
                             </div>
                         </div>
 
+                        <!-- NISN (National Student Identification Number) -->
                         <div class="form-group row">
-                            <label for="nisn" class="col-md-4 col-form-label text-md-right">{{ __('NISN') }}</label>
+                            <label for="nisn" class="col-md-4 col-form-label text-md-right">NISN</label>
                             <div class="col-md-6">
                                 <input id="nisn" type="text"
                                     class="form-control @error('nisn') is-invalid @enderror" name="nisn"
@@ -150,11 +158,12 @@
                         </div>
 
                         <!-- Parent's Biodata Section -->
-                        <h2>{{ __('Parent\'s Biodata') }}</h2>
+                        <h2>Parent's Biodata</h2>
                         <hr>
+
+                        <!-- Father's Name -->
                         <div class="form-group row">
-                            <label for="father_name"
-                                class="col-md-4 col-form-label text-md-right">{{ __('Father\'s Name') }}</label>
+                            <label for="father_name" class="col-md-4 col-form-label text-md-right">Father's Name</label>
                             <div class="col-md-6">
                                 <input id="father_name" type="text"
                                     class="form-control @error('father_name') is-invalid @enderror" name="father_name"
@@ -167,9 +176,10 @@
                             </div>
                         </div>
 
+                        <!-- Father's Occupation -->
                         <div class="form-group row">
-                            <label for="father_occupation"
-                                class="col-md-4 col-form-label text-md-right">{{ __('Father\'s Occupation') }}</label>
+                            <label for="father_occupation" class="col-md-4 col-form-label text-md-right">Father's
+                                Occupation</label>
                             <div class="col-md-6">
                                 <input id="father_occupation" type="text"
                                     class="form-control @error('father_occupation') is-invalid @enderror"
@@ -182,9 +192,10 @@
                             </div>
                         </div>
 
+                        <!-- Father's Income -->
                         <div class="form-group row">
-                            <label for="father_income"
-                                class="col-md-4 col-form-label text-md-right">{{ __('Father\'s Income') }}</label>
+                            <label for="father_income" class="col-md-4 col-form-label text-md-right">Father's
+                                Income</label>
                             <div class="col-md-6">
                                 <input id="father_income" type="text"
                                     class="form-control @error('father_income') is-invalid @enderror"
@@ -197,9 +208,9 @@
                             </div>
                         </div>
 
+                        <!-- Mother's Name -->
                         <div class="form-group row">
-                            <label for="mother_name"
-                                class="col-md-4 col-form-label text-md-right">{{ __('Mother\'s Name') }}</label>
+                            <label for="mother_name" class="col-md-4 col-form-label text-md-right">Mother's Name</label>
                             <div class="col-md-6">
                                 <input id="mother_name" type="text"
                                     class="form-control @error('mother_name') is-invalid @enderror" name="mother_name"
@@ -212,9 +223,10 @@
                             </div>
                         </div>
 
+                        <!-- Mother's Occupation -->
                         <div class="form-group row">
-                            <label for="mother_occupation"
-                                class="col-md-4 col-form-label text-md-right">{{ __('Mother\'s Occupation') }}</label>
+                            <label for="mother_occupation" class="col-md-4 col-form-label text-md-right">Mother's
+                                Occupation</label>
                             <div class="col-md-6">
                                 <input id="mother_occupation" type="text"
                                     class="form-control @error('mother_occupation') is-invalid @enderror"
@@ -227,9 +239,10 @@
                             </div>
                         </div>
 
+                        <!-- Mother's Income -->
                         <div class="form-group row">
-                            <label for="mother_income"
-                                class="col-md-4 col-form-label text-md-right">{{ __('Mother\'s Income') }}</label>
+                            <label for="mother_income" class="col-md-4 col-form-label text-md-right">Mother's
+                                Income</label>
                             <div class="col-md-6">
                                 <input id="mother_income" type="text"
                                     class="form-control @error('mother_income') is-invalid @enderror"
@@ -242,9 +255,10 @@
                             </div>
                         </div>
 
+                        <!-- Parent's Phone Number -->
                         <div class="form-group row">
-                            <label for="parent_phone_number"
-                                class="col-md-4 col-form-label text-md-right">{{ __('Parent\'s Phone Number') }}</label>
+                            <label for="parent_phone_number" class="col-md-4 col-form-label text-md-right">Parent's Phone
+                                Number</label>
                             <div class="col-md-6">
                                 <input id="parent_phone_number" type="text"
                                     class="form-control @error('parent_phone_number') is-invalid @enderror"
@@ -259,9 +273,7 @@
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Register') }}
-                                </button>
+                                <button type="submit" class="btn btn-primary">Register</button>
                             </div>
                         </div>
                     </form>

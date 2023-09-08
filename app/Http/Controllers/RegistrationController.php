@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Ortu;
+use App\Models\Pelajar;
 use Illuminate\Http\Request;
 
 class RegistrationController extends Controller
@@ -35,7 +37,7 @@ class RegistrationController extends Controller
         ]);
 
         // Create a new Student record
-        $student = Student::create([
+        $student = Pelajar::create([
             'name' => $validatedData['student_name'],
             'phone_number' => $validatedData['student_phone_number'],
             'religion' => $validatedData['student_religion'],
@@ -48,7 +50,7 @@ class RegistrationController extends Controller
         ]);
 
         // Create a new Parent record
-        $parent = parent::create([
+        $parent = Ortu::create([
             'father_name' => $validatedData['father_name'],
             'father_occupation' => $validatedData['father_occupation'],
             'father_income' => $validatedData['father_income'],

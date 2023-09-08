@@ -30,7 +30,12 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::get('/daftar', [RegistrationController::class, 'showRegistrationForm'])->name('registration.form');
+
+// Handle registration form submission
 Route::post('/daftar', [RegistrationController::class, 'register'])->name('registration.register');
 
+Route::get('/registration/success', function () {
+    return view('registration.success');
+})->name('registration.success');
 
 require __DIR__ . '/auth.php';
