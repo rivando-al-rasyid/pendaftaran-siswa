@@ -12,13 +12,13 @@ return new class extends Migration {
     {
         Schema::create('ortus', function (Blueprint $table) {
             $table->id();
-            $table->string('father_name');
-            $table->string('father_occupation');
-            $table->decimal('father_income', 10, 2);
-            $table->string('mother_name');
-            $table->string('mother_occupation');
-            $table->decimal('mother_income', 10, 2);
-            $table->string('phone_number');
+            $table->string('nama_ayah');
+            $table->string('pekerjaan_ayah');
+            $table->decimal('penghasilan_ayah', 10, 2);
+            $table->string('nama_ibu');
+            $table->string('pekerjaan_ibu');
+            $table->decimal('penghasilan_ibu', 10, 2);
+            $table->string('nomor_telepon');
             $table->timestamps();
         });
     }

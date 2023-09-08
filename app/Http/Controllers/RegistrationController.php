@@ -13,57 +13,56 @@ class RegistrationController extends Controller
         return view('registration.form');
     }
 
-    // Handle form submissions
+    // Menghandle pengiriman formulir
     public function register(Request $request)
     {
-        // Validate form data
+        // Validasi data formulir
         $validatedData = $request->validate([
-            'student_name' => 'required|string|max:255',
-            'student_phone_number' => 'required|string|max:20',
-            'student_religion' => 'required|string|max:255',
-            'student_date_of_birth' => 'required|date',
-            'student_place_of_birth' => 'required|string|max:255',
-            'current_school' => 'required|string|max:255',
-            'address' => 'required|string|max:255',
-            'gender' => 'required|in:Male,Female',
+            'nama_siswa' => 'required|string|max:255',
+            'nomor_telepon_siswa' => 'required|string|max:20',
+            'agama_siswa' => 'required|string|max:255',
+            'tanggal_lahir_siswa' => 'required|date',
+            'tempat_lahir_siswa' => 'required|string|max:255',
+            'sekolah_sekarang' => 'required|string|max:255',
+            'alamat' => 'required|string|max:255',
+            'jenis_kelamin' => 'required|in:Laki-laki,Perempuan',
             'nisn' => 'required|string|max:20|unique:students',
-            'father_name' => 'required|string|max:255',
-            'father_occupation' => 'required|string|max:255',
-            'father_income' => 'required|numeric',
-            'mother_name' => 'required|string|max:255',
-            'mother_occupation' => 'required|string|max:255',
-            'mother_income' => 'required|numeric',
-            'parent_phone_number' => 'required|string|max:20',
+            'nama_ayah' => 'required|string|max:255',
+            'pekerjaan_ayah' => 'required|string|max:255',
+            'penghasilan_ayah' => 'required|numeric',
+            'nama_ibu' => 'required|string|max:255',
+            'pekerjaan_ibu' => 'required|string|max:255',
+            'penghasilan_ibu' => 'required|numeric',
+            'nomor_telepon_orang_tua' => 'required|string|max:20',
         ]);
 
-        // Create a new Student record
-        $student = Pelajar::create([
-            'name' => $validatedData['student_name'],
-            'phone_number' => $validatedData['student_phone_number'],
-            'religion' => $validatedData['student_religion'],
-            'date_of_birth' => $validatedData['student_date_of_birth'],
-            'place_of_birth' => $validatedData['student_place_of_birth'],
-            'current_school' => $validatedData['current_school'],
-            'address' => $validatedData['address'],
-            'gender' => $validatedData['gender'],
+        // Membuat catatan baru untuk Siswa
+        $pelajar = Pelajar::create([
+            'nama' => $validatedData['nama_siswa'],
+            'nomor_telepon' => $validatedData['nomor_telepon_siswa'],
+            'agama' => $validatedData['agama_siswa'],
+            'tanggal_lahir' => $validatedData['tanggal_lahir_siswa'],
+            'tempat_lahir' => $validatedData['tempat_lahir_siswa'],
+            'sekolah_sekarang' => $validatedData['sekolah_sekarang'],
+            'alamat' => $validatedData['alamat'],
+            'jenis_kelamin' => $validatedData['jenis_kelamin'],
             'nisn' => $validatedData['nisn'],
         ]);
 
-        // Create a new Parent record
-        $parent = Ortu::create([
-            'father_name' => $validatedData['father_name'],
-            'father_occupation' => $validatedData['father_occupation'],
-            'father_income' => $validatedData['father_income'],
-            'mother_name' => $validatedData['mother_name'],
-            'mother_occupation' => $validatedData['mother_occupation'],
-            'mother_income' => $validatedData['mother_income'],
-            'phone_number' => $validatedData['parent_phone_number'],
+        // Membuat catatan baru untuk Orang Tua
+        $orangTua = Ortu::create([
+            'nama_ayah' => $validatedData['nama_ayah'],
+            'pekerjaan_ayah' => $validatedData['pekerjaan_ayah'],
+            'penghasilan_ayah' => $validatedData['penghasilan_ayah'],
+            'nama_ibu' => $validatedData['nama_ibu'],
+            'pekerjaan_ibu' => $validatedData['pekerjaan_ibu'],
+            'penghasilan_ibu' => $validatedData['penghasilan_ibu'],
+            'nomor_telepon' => $validatedData['nomor_telepon_orang_tua'],
         ]);
 
-        // You can add any additional logic here, such as sending confirmation emails
+        // Anda dapat menambahkan logika tambahan di sini, seperti mengirim email konfirmasi
 
-        // Redirect to a success page or wherever you prefer
-        return redirect('/registration/success')->with('success', 'Registration successful!');
+        // Redirect ke halaman sukses atau tempat lain sesuai keinginan Anda
+        return redirect('/registrasi/sukses')->with('success', 'Pendaftaran berhasil!');
     }
-
 }

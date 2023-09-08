@@ -12,14 +12,14 @@ return new class extends Migration {
     {
         Schema::create('pelajars', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('phone_number');
-            $table->string('religion');
-            $table->date('date_of_birth');
-            $table->string('place_of_birth');
-            $table->string('current_school');
-            $table->string('address');
-            $table->enum('gender', ['Male', 'Female']);
+            $table->string('nama');
+            $table->string('nomor_telepon');
+            $table->string('agama');
+            $table->date('tanggal_lahir');
+            $table->string('tempat_lahir');
+            $table->string('sekolah_sekarang');
+            $table->string('alamat');
+            $table->enum('jenis_kelamin', ['Laki-laki', 'Perempuan']);
             $table->string('nisn')->unique();
             $table->timestamps();
         });
